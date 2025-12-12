@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./Header.scss";
+import Animation from "../Animation/Animation";
+import Scramble from "../Animation/Scramble";
 
 const navLinks = ["Solutions", "Technology", "About", "Careers", "Resources", "Contact"];
 
@@ -13,14 +15,19 @@ const [menuOpen, setMenuOpen] = useState(false)
       <div className="header__inner">
         <div className="header__logo">
           <a href="#">
+          <Animation delay={0.4}>
           <img src="/logo.svg" alt="UNLEARN" />
+          </Animation>
           </a>
         </div>
         <nav className={`nav ${menuOpen ? "nav-open" : ""}`}>
           <ul className="nav__list">
             {navLinks.map(item => (
               <li key={item}>
-                <a className="nav__link" href="#">{item}</a>
+                <a 
+                data-text={item}
+                onMouseEnter={(e) => Scramble(e.currentTarget)}
+                className="nav__link" href="#">{item}</a>
               </li>
             ))}
           </ul>
