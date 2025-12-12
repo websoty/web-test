@@ -1,0 +1,136 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  padding: 60px 0 40px;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .burger {
+    display: none;
+    width: 32px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 30;
+
+    span {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: #fff;
+      left: 0;
+      transition: 0.3s ease;
+    }
+
+    span:nth-child(1) {
+      top: 0;
+    }
+    span:nth-child(2) {
+      top: 11px;
+    }
+    span:nth-child(3) {
+      bottom: 0;
+    }
+  }
+}
+
+.burger-open span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 8px;
+}
+
+.burger-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-open span:nth-child(3) {
+  transform: rotate(-45deg);
+  bottom: 8px;
+}
+
+.nav {
+  &__list {
+    display: flex;
+    gap: 50px;
+  }
+  &__link {
+    opacity: 0.5;
+    font-weight: 500;
+    font-size: 14px;
+    transition: 0.3s ease-out;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: 868px) {
+  .header {
+    padding: 50px 0;
+    .nav {
+      position: fixed;
+      inset: 0;
+      background: rgba(36, 35, 35, 0.8);
+      backdrop-filter: blur(20px);
+      transform: translateX(100%);
+      transition: 0.4s ease-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-open {
+      transform: translateX(0);
+    }
+
+    .nav__list {
+      flex-direction: column;
+      gap: 40px;
+      text-align: center;
+    }
+
+    .burger {
+      display: flex;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    .burger {
+      width: 24px;
+      height: 18px;
+
+      span {
+        height: 2px;
+      }
+
+      span:nth-child(1) {
+        top: 0;
+      }
+
+      span:nth-child(2) {
+        top: 8px;
+      }
+
+      span:nth-child(3) {
+        bottom: 0;
+      }
+    }
+  }
+
+  .burger-open span:nth-child(1) {
+    top: 8px;
+  }
+
+  .burger-open span:nth-child(3) {
+    bottom: 8px;
+  }
+}

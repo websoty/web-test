@@ -1,0 +1,32 @@
+.hero__visual {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background-image: url("/dots.svg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center 50%;
+}
+
+@media (max-width: 1000px) {
+    .hero__visual {
+    transform: scale(1.2) 
+    translateX(10%);
+  }
+}
+
+@media (max-width: 868px) {
+  .hero__visual {
+    transform: scale(2) 
+    translateX(10%);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero__visual {
+    transform: rotate(45deg) scale(3) 
+    translateX(10%);
+  }
+}
